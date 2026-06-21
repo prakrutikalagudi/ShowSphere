@@ -1,0 +1,18 @@
+# Maven
+**/target/
+**/.mvn/
+**/mvnw
+**/mvnw.cmd
+
+# Node / Frontend
+**/node_modules/
+**/dist/
+
+# IDEs & System
+**/.idea/
+**/.vscode/
+**/.settings/
+**/.classpath/
+**/.project/
+**/.DS_Store
+**/.gemini/
