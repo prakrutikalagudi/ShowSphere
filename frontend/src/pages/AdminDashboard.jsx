@@ -448,8 +448,13 @@ const AdminDashboard = () => {
                   <span style={{ color: 'var(--color-steel)', fontSize: '11px' }}>or URL:</span>
                 </div>
                 <input type="text" placeholder="e.g. https://domain.com/poster.jpg"
-                  value={movieForm.posterUrl && movieForm.posterUrl.startsWith('data:') ? 'Image uploaded successfully' : movieForm.posterUrl}
+                  value={movieForm.posterUrl && movieForm.posterUrl.startsWith('data:') ? '' : movieForm.posterUrl}
                   onChange={e => setMovieForm({...movieForm,posterUrl:e.target.value})} />
+                {movieForm.posterUrl && movieForm.posterUrl.startsWith('data:') && (
+                  <div style={{ color: '#46d369', fontSize: '11px', marginTop: '4px' }}>
+                    ✅ Image file loaded from your computer
+                  </div>
+                )}
                 {movieForm.posterUrl && (
                   <img src={movieForm.posterUrl} alt="Preview" style={{ height: '70px', marginTop: '10px', borderRadius: '4px', border: '1px solid var(--color-fog)' }} />
                 )}
@@ -895,7 +900,12 @@ const AdminDashboard = () => {
                         }} />
                       <span style={{ color: 'var(--color-steel)', fontSize: '11px' }}>or URL:</span>
                     </div>
-                    <input type="text" value={editForm.posterUrl && editForm.posterUrl.startsWith('data:') ? 'Image uploaded successfully' : (editForm.posterUrl || '')} onChange={e => setEditForm({...editForm, posterUrl: e.target.value})} />
+                    <input type="text" value={editForm.posterUrl && editForm.posterUrl.startsWith('data:') ? '' : (editForm.posterUrl || '')} onChange={e => setEditForm({...editForm, posterUrl: e.target.value})} />
+                    {editForm.posterUrl && editForm.posterUrl.startsWith('data:') && (
+                      <div style={{ color: '#46d369', fontSize: '11px', marginTop: '4px' }}>
+                        ✅ Image file loaded from your computer
+                      </div>
+                    )}
                     {editForm.posterUrl && (
                       <img src={editForm.posterUrl} alt="Preview" style={{ height: '70px', marginTop: '10px', borderRadius: '4px', border: '1px solid var(--color-fog)' }} />
                     )}
