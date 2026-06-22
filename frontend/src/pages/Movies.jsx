@@ -12,10 +12,10 @@ export const getMoviePoster = (movie) => {
   const localPosters = JSON.parse(localStorage.getItem('showsphere_posters') || '{}');
   
   // Look up by movie ID, title, or lowercase title
-  const customPoster = localPosters[movie.id] 
+  const customPoster = movie.posterUrl
+    || localPosters[movie.id] 
     || localPosters[movie.title] 
-    || (movie.title && localPosters[movie.title.toLowerCase()]) 
-    || movie.posterUrl;
+    || (movie.title && localPosters[movie.title.toLowerCase()]);
   
   if (customPoster && typeof customPoster === 'string' && customPoster.trim().length > 5) {
     return customPoster.trim();
