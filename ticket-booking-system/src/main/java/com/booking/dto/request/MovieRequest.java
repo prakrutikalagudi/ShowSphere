@@ -23,7 +23,6 @@ public class MovieRequest {
 
     private String description;
 
-    @Size(max = 1000)
     private String posterUrl;
 
     @Size(max = 1000)

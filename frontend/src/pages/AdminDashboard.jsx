@@ -432,10 +432,27 @@ const AdminDashboard = () => {
                 </div>
               ))}
               <div className="input-group">
-                <label>Movie Poster URL (Optional)</label>
+                <label>Movie Poster (Upload file or paste URL)</label>
+                <div style={{ display: 'flex', gap: '10px', alignItems: 'center', marginBottom: '6px' }}>
+                  <input type="file" accept="image/*" style={{ width: 'auto', padding: '4px', fontSize: '11px' }}
+                    onChange={(e) => {
+                      const file = e.target.files[0];
+                      if (file) {
+                        const reader = new FileReader();
+                        reader.onloadend = () => {
+                          setMovieForm({...movieForm, posterUrl: reader.result});
+                        };
+                        reader.readAsDataURL(file);
+                      }
+                    }} />
+                  <span style={{ color: 'var(--color-steel)', fontSize: '11px' }}>or URL:</span>
+                </div>
                 <input type="text" placeholder="e.g. https://domain.com/poster.jpg"
-                  value={movieForm.posterUrl}
+                  value={movieForm.posterUrl && movieForm.posterUrl.startsWith('data:') ? 'Image uploaded successfully' : movieForm.posterUrl}
                   onChange={e => setMovieForm({...movieForm,posterUrl:e.target.value})} />
+                {movieForm.posterUrl && (
+                  <img src={movieForm.posterUrl} alt="Preview" style={{ height: '70px', marginTop: '10px', borderRadius: '4px', border: '1px solid var(--color-fog)' }} />
+                )}
               </div>
               <div className="input-group">
                 <label>Movie Video ID / URL (Optional)</label>
@@ -863,8 +880,25 @@ const AdminDashboard = () => {
                     <input type="text" value={editForm.language || ''} onChange={e => setEditForm({...editForm, language: e.target.value})} required />
                   </div>
                   <div className="input-group">
-                    <label>Movie Poster URL (Optional)</label>
-                    <input type="text" value={editForm.posterUrl || ''} onChange={e => setEditForm({...editForm, posterUrl: e.target.value})} />
+                    <label>Movie Poster (Upload file or paste URL)</label>
+                    <div style={{ display: 'flex', gap: '10px', alignItems: 'center', marginBottom: '6px' }}>
+                      <input type="file" accept="image/*" style={{ width: 'auto', padding: '4px', fontSize: '11px' }}
+                        onChange={(e) => {
+                          const file = e.target.files[0];
+                          if (file) {
+                            const reader = new FileReader();
+                            reader.onloadend = () => {
+                              setEditForm({...editForm, posterUrl: reader.result});
+                            };
+                            reader.readAsDataURL(file);
+                          }
+                        }} />
+                      <span style={{ color: 'var(--color-steel)', fontSize: '11px' }}>or URL:</span>
+                    </div>
+                    <input type="text" value={editForm.posterUrl && editForm.posterUrl.startsWith('data:') ? 'Image uploaded successfully' : (editForm.posterUrl || '')} onChange={e => setEditForm({...editForm, posterUrl: e.target.value})} />
+                    {editForm.posterUrl && (
+                      <img src={editForm.posterUrl} alt="Preview" style={{ height: '70px', marginTop: '10px', borderRadius: '4px', border: '1px solid var(--color-fog)' }} />
+                    )}
                   </div>
                   <div className="input-group">
                     <label>Movie Video ID / URL (Optional)</label>

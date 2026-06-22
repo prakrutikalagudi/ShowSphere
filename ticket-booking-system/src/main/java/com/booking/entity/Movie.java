@@ -29,7 +29,7 @@ public class Movie {
     @Column(columnDefinition = "TEXT")
     private String description;
 
-    @Column(name = "poster_url", length = 1000)
+    @Column(name = "poster_url", columnDefinition = "LONGTEXT")
     private String posterUrl;
 
     @Column(name = "video_url", length = 1000)
