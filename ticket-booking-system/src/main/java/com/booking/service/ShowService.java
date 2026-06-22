@@ -102,10 +102,12 @@ public class ShowService {
         // Delete all bookings of this show first
         List<Booking> bookings = bookingRepository.findByShowId(id);
         bookingRepository.deleteAll(bookings);
+        bookingRepository.flush();
 
         // Delete all seats of this show next
         List<Seat> seats = seatRepository.findByShowId(id);
         seatRepository.deleteAll(seats);
+        seatRepository.flush();
 
         showRepository.delete(show);
         log.info("Show deleted: {}", id);

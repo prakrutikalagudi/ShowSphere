@@ -89,10 +89,12 @@ public class MovieService {
             // Delete bookings first (foreign key to show & seat)
             List<Booking> bookings = bookingRepository.findByShowId(show.getId());
             bookingRepository.deleteAll(bookings);
+            bookingRepository.flush();
             
             // Delete seats next (foreign key to show)
             List<Seat> seats = seatRepository.findByShowId(show.getId());
             seatRepository.deleteAll(seats);
+            seatRepository.flush();
             
             // Delete show
             showRepository.delete(show);
