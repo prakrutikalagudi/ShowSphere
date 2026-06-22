@@ -384,3 +384,40 @@ body {
     padding: 6px 12px !important;
   }
 }
+
+/* ─── Auth Cards Mobile Responsive Fixes ─── */
+@media (max-width: 768px) {
+  /* Make overlay darker for readability on mobile screen */
+  .auth-overlay-mobile-fix {
+    background-color: rgba(0, 0, 0, 0.65) !important;
+  }
+  
+  /* Center the card and apply semi-transparent paper card backdrop */
+  .auth-card-mobile-fix {
+    margin-top: 0px !important;
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+    align-self: center !important;
+    width: 90% !important;
+    max-width: 350px !important;
+    padding: 24px 24px !important;
+    background: rgba(232, 227, 210, 0.95) !important; /* Lighter vintage cream backdrop matching theme */
+    border: 1px solid rgba(126, 106, 86, 0.2) !important;
+    border-radius: 12px !important;
+    box-shadow: var(--shadow-xl) !important;
+  }
+
+  /* Make text dark on the card since backdrop is cream */
+  .auth-card-mobile-fix h2,
+  .auth-card-mobile-fix label,
+  .auth-card-mobile-fix p {
+    color: #2C2A29 !important;
+  }
+
+  /* Adjust register card position slightly on mobile */
+  .auth-card-mobile-fix form input {
+    background-color: rgba(0, 0, 0, 0.05) !important;
+    border: 1px solid rgba(0, 0, 0, 0.15) !important;
+    color: #2C2A29 !important;
+  }
+}
