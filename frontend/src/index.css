@@ -387,37 +387,37 @@ body {
 
 /* ─── Auth Cards Mobile Responsive Fixes ─── */
 @media (max-width: 768px) {
-  /* Make overlay darker for readability on mobile screen */
+  /* Keep background overlay light and transparent as on desktop */
   .auth-overlay-mobile-fix {
-    background-color: rgba(0, 0, 0, 0.65) !important;
+    background-color: rgba(44, 42, 41, 0.15) !important;
   }
   
-  /* Center the card and apply semi-transparent paper card backdrop */
+  /* Align card inside the projector screen area on mobile */
   .auth-card-mobile-fix {
-    margin-top: 0px !important;
-    margin-left: 0px !important;
-    margin-right: 0px !important;
-    align-self: center !important;
-    width: 90% !important;
-    max-width: 350px !important;
-    padding: 24px 24px !important;
-    background: rgba(232, 227, 210, 0.95) !important; /* Lighter vintage cream backdrop matching theme */
-    border: 1px solid rgba(126, 106, 86, 0.2) !important;
-    border-radius: 12px !important;
-    box-shadow: var(--shadow-xl) !important;
+    margin-top: -36% !important; /* Pull up into the screen */
+    margin-left: 14% !important; /* Shift right to align with the screen */
+    width: 68% !important;
+    min-width: 250px !important;
+    max-width: 320px !important;
+    padding: 10px 10px !important;
+    background: transparent !important; /* Completely transparent */
+    border: none !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
   }
 
-  /* Make text dark on the card since backdrop is cream */
+  /* Keep text dark charcoal so it is highly readable on the white screen */
   .auth-card-mobile-fix h2,
   .auth-card-mobile-fix label,
-  .auth-card-mobile-fix p {
+  .auth-card-mobile-fix p,
+  .auth-card-mobile-fix span {
     color: #2C2A29 !important;
   }
 
-  /* Adjust register card position slightly on mobile */
+  /* Make input fields cream/white matching desktop theme */
   .auth-card-mobile-fix form input {
-    background-color: rgba(0, 0, 0, 0.05) !important;
-    border: 1px solid rgba(0, 0, 0, 0.15) !important;
+    background-color: #F5F2EA !important;
+    border: 1px solid rgba(0, 0, 0, 0.1) !important;
     color: #2C2A29 !important;
   }
 }
