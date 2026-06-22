@@ -31,6 +31,8 @@ public class MovieService {
                 .duration(request.getDuration())
                 .language(request.getLanguage())
                 .description(request.getDescription())
+                .posterUrl(request.getPosterUrl())
+                .videoUrl(request.getVideoUrl())
                 .build();
 
         Movie saved = movieRepository.save(movie);
@@ -64,6 +66,8 @@ public class MovieService {
         movie.setDuration(request.getDuration());
         movie.setLanguage(request.getLanguage());
         movie.setDescription(request.getDescription());
+        movie.setPosterUrl(request.getPosterUrl());
+        movie.setVideoUrl(request.getVideoUrl());
         Movie saved = movieRepository.save(movie);
         log.info("Movie updated: {}", saved.getTitle());
         return mapToResponse(saved);
@@ -106,6 +110,8 @@ public class MovieService {
                 .duration(movie.getDuration())
                 .language(movie.getLanguage())
                 .description(movie.getDescription())
+                .posterUrl(movie.getPosterUrl())
+                .videoUrl(movie.getVideoUrl())
                 .build();
     }
 }

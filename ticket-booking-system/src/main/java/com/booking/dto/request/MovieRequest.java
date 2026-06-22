@@ -22,4 +22,10 @@ public class MovieRequest {
     private String language;
 
     private String description;
+
+    @Size(max = 1000)
+    private String posterUrl;
+
+    @Size(max = 1000)
+    private String videoUrl;
 }

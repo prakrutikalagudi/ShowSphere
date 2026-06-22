@@ -95,7 +95,9 @@ const AdminDashboard = () => {
         genre: movieForm.genre,
         duration: Number(movieForm.duration),
         language: movieForm.language,
-        description: movieForm.description
+        description: movieForm.description,
+        posterUrl: movieForm.posterUrl,
+        videoUrl: movieForm.videoUrl
       });
       
       const newM = res.data.data;
@@ -135,8 +137,8 @@ const AdminDashboard = () => {
       duration: movie.duration || '',
       language: movie.language || '',
       description: movie.description || '',
-      posterUrl: localStorage.getItem('showsphere_posters') ? (JSON.parse(localStorage.getItem('showsphere_posters'))[movie.id] || movie.posterUrl || '') : (movie.posterUrl || ''),
-      videoUrl: localStorage.getItem('showsphere_videos') ? (JSON.parse(localStorage.getItem('showsphere_videos'))[movie.id] || '') : ''
+      posterUrl: movie.posterUrl || '',
+      videoUrl: movie.videoUrl || ''
     });
     setShowEditModal(true);
   };
@@ -172,7 +174,9 @@ const AdminDashboard = () => {
           genre: editForm.genre,
           duration: Number(editForm.duration),
           language: editForm.language,
-          description: editForm.description
+          description: editForm.description,
+          posterUrl: editForm.posterUrl,
+          videoUrl: editForm.videoUrl
         });
 
         if (editForm.posterUrl) {

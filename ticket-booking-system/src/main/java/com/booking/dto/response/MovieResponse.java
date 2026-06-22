@@ -12,4 +12,6 @@ public class MovieResponse {
     private Integer duration;
     private String language;
     private String description;
+    private String posterUrl;
+    private String videoUrl;
 }

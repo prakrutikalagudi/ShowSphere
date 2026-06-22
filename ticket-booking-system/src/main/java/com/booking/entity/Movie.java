@@ -29,6 +29,12 @@ public class Movie {
     @Column(columnDefinition = "TEXT")
     private String description;
 
+    @Column(name = "poster_url", length = 1000)
+    private String posterUrl;
+
+    @Column(name = "video_url", length = 1000)
+    private String videoUrl;
+
     @Column(name = "created_at")
     private LocalDateTime createdAt;
 
