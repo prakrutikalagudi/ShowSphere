@@ -99,7 +99,7 @@ public class SimulationService {
             User user = User.builder()
                     .name(name)
                     .email(email)
-                    .password(passwordEncoder.encode("password123"))
+                    .password("$2a$10$8.UnVuG9HHgffUDalk8qCOuyzRRCBY.8HPu.nL20R.7/SKS3eO1nO") // Pre-hashed "password123"
                     .role(User.Role.USER)
                     .build();
             return userRepository.save(user);
