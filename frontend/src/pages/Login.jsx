@@ -40,7 +40,7 @@ const Login = () => {
   };
 
   return (
-    <div style={{
+    <div className="auth-container fade-in" style={{
       height: 'calc(100vh - 64px)',
       width: '100%',
       backgroundImage: "url('/vintage_cinema_screen.jpg')",
@@ -51,7 +51,7 @@ const Login = () => {
       alignItems: 'center',
       justifyContent: 'center',
       overflow: 'hidden'
-    }} className="fade-in">
+    }}>
       
       {/* Dark overlay */}
       <div 

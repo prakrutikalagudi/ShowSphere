@@ -387,16 +387,23 @@ body {
 
 /* ─── Auth Cards Mobile Responsive Fixes ─── */
 @media (max-width: 768px) {
+  /* Set the portrait background image for mobile viewports */
+  .auth-container {
+    background-image: url('/vintage_cinema_screen_mobile.jpg') !important;
+    background-position: center !important;
+  }
+
   /* Keep background overlay light and transparent as on desktop */
   .auth-overlay-mobile-fix {
     background-color: rgba(44, 42, 41, 0.15) !important;
   }
   
-  /* Align card inside the projector screen area on mobile */
+  /* Center card inside the mobile portrait projector screen area */
   .auth-card-mobile-fix {
-    margin-top: -36% !important; /* Pull up into the screen */
-    margin-left: 14% !important; /* Shift right to align with the screen */
-    width: 68% !important;
+    margin-top: -42% !important; /* Pull up into the screen */
+    margin-left: auto !important; /* Center horizontally */
+    margin-right: auto !important; /* Center horizontally */
+    width: 82% !important;
     min-width: 250px !important;
     max-width: 320px !important;
     padding: 10px 10px !important;
