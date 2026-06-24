@@ -40,48 +40,13 @@ const Login = () => {
   };
 
   return (
-    <div className="auth-container fade-in" style={{
-      height: 'calc(100vh - 64px)',
-      width: '100%',
-      backgroundImage: "url('/vintage_cinema_screen.jpg')",
-      backgroundSize: 'cover',
-      backgroundPosition: 'center',
-      position: 'relative',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      overflow: 'hidden'
-    }}>
+    <div className="auth-container fade-in">
       
       {/* Dark overlay */}
-      <div 
-        className="auth-overlay-mobile-fix"
-        style={{
-          position: 'absolute',
-          inset: 0,
-          backgroundColor: 'rgba(44, 42, 41, 0.15)',
-          zIndex: 1
-        }} 
-      />
+      <div className="auth-overlay" />
 
       {/* Login Card (Fits inside the projector screen of the background image) */}
-      <div 
-        className="auth-card-mobile-fix"
-        style={{
-          position: 'relative',
-          zIndex: 2,
-          marginTop: '-22%', /* Align with the projector screen */
-          marginLeft: '19%', /* Align with the projector screen */
-          width: '38%',
-          maxWidth: '380px',
-          minWidth: '290px',
-          padding: '16px 20px',
-          background: 'transparent', /* Completely transparent */
-          border: 'none',
-          boxShadow: 'none',
-          textAlign: 'left'
-        }}
-      >
+      <div className="auth-card">
         <div style={{ marginBottom: '16px' }}>
           <h2 style={{
             fontSize: '20px',

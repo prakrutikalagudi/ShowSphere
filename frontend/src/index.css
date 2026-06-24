@@ -385,46 +385,97 @@ body {
   }
 }
 
-/* ─── Auth Cards Mobile Responsive Fixes ─── */
+/* ─── Auth Page Layout (Desktop & Mobile) ─── */
+.auth-container {
+  height: calc(100vh - 64px);
+  width: 100%;
+  background-image: url('/vintage_cinema_screen.jpg');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.auth-overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(44, 42, 41, 0.15);
+  z-index: 1;
+}
+
+.auth-card {
+  position: relative;
+  z-index: 2;
+  margin-top: -12%;
+  margin-left: 19%;
+  width: 38%;
+  max-width: 380px;
+  min-width: 290px;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  text-align: left;
+}
+
 @media (max-width: 768px) {
-  /* Set the portrait background image for mobile viewports */
   .auth-container {
     background-image: url('/vintage_cinema_screen_mobile.jpg') !important;
     background-position: center !important;
   }
 
-  /* Keep background overlay light and transparent as on desktop */
-  .auth-overlay-mobile-fix {
-    background-color: rgba(44, 42, 41, 0.15) !important;
+  .auth-overlay {
+    background-color: rgba(44, 42, 41, 0.1) !important;
   }
-  
-  /* Center card inside the mobile portrait projector screen area */
-  .auth-card-mobile-fix {
-    margin-top: -42% !important; /* Pull up into the screen */
+
+  .auth-card {
+    margin-top: -30% !important; /* Move card higher into the mobile projector screen */
     margin-left: auto !important; /* Center horizontally */
     margin-right: auto !important; /* Center horizontally */
-    width: 82% !important;
-    min-width: 250px !important;
-    max-width: 320px !important;
-    padding: 10px 10px !important;
-    background: transparent !important; /* Completely transparent */
+    width: 76% !important;
+    min-width: 230px !important;
+    max-width: 290px !important;
+    padding: 8px 12px !important;
+    background: transparent !important;
     border: none !important;
     box-shadow: none !important;
     backdrop-filter: none !important;
   }
 
-  /* Keep text dark charcoal so it is highly readable on the white screen */
-  .auth-card-mobile-fix h2,
-  .auth-card-mobile-fix label,
-  .auth-card-mobile-fix p,
-  .auth-card-mobile-fix span {
+  /* Compact spacing for inputs to fit height limits on small screens */
+  .auth-card .input-group {
+    margin-bottom: 8px !important;
+  }
+
+  .auth-card label {
+    font-size: 10px !important;
+    margin-bottom: 1px !important;
+  }
+
+  .auth-card form input {
+    height: 32px !important;
+    font-size: 12px !important;
+    padding: 4px 8px !important;
+    background-color: #F5F2EA !important;
+    border: 1px solid rgba(0, 0, 0, 0.1) !important;
     color: #2C2A29 !important;
   }
 
-  /* Make input fields cream/white matching desktop theme */
-  .auth-card-mobile-fix form input {
-    background-color: #F5F2EA !important;
-    border: 1px solid rgba(0, 0, 0, 0.1) !important;
+  .auth-card .btn {
+    height: 34px !important;
+    font-size: 13px !important;
+    padding: 4px 8px !important;
+    margin-top: 6px !important;
+  }
+
+  /* Keep all labels and headings dark charcoal for readability */
+  .auth-card h2,
+  .auth-card label,
+  .auth-card p,
+  .auth-card span,
+  .auth-card a {
     color: #2C2A29 !important;
   }
 }
